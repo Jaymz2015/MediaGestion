@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MediaGestion.DAO.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CHAINE_CONNEXION" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=PC-JEROME;Initial Catalog=CatalogueMedias;Integrated Security=true</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

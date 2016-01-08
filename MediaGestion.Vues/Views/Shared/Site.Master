@@ -1,0 +1,207 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    
+    <link href="../../Content/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/jquery-ui.structure.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/jquery-ui.theme.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css" />
+    
+
+   <script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-1.11.1.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui.js" type="text/javascript"></script>
+
+     <script type="text/javascript">
+         $(document).ready(function() {
+             $(".datepicker").datepicker({
+                 changeMonth: true,
+                 changeYear: true,
+                 showButtonPanel: true,
+                 dateFormat: 'dd/mm/yy',
+                 yearRange: '-100:+0'
+             }
+                );
+         });
+     </script>
+     
+
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1>MEDIA GESTION</h1>
+            </div>
+              
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+            </div> 
+            
+            <div id="menucontainer">
+            
+                <ul id="menu">   
+                    <li>
+                        <%= Html.ActionLink("Films", "Index", "Film", new { pNumeroPage = 1 }, null)%>                    
+                    </li>
+
+                    <li>
+                        <%= Html.ActionLink("Series", "Index", "Serie", new { pNumeroPage = 1 }, null)%>                    
+                    </li>
+
+                    <li>
+                        <%= Html.ActionLink("Jeux", "Index", "Jeu", new { pNumeroPage = 1 }, null)%>                    
+                    </li>
+
+                    <li>
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Ajouter film", "Create", "Film") %>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Ajouter film", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+
+                    </li>
+
+                     <li>
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Ajouter série", "Create", "Serie") %>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Ajouter série", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+
+                    </li>
+
+                    <li>
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Ajouter jeu", "Create", "Jeu") %>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Ajouter jeu", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+
+                    </li>
+                   <%-- 
+                    <li>
+                    
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Propriétaires", "Index", "Proprietaire")%>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Propriétaires", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+
+                    </li>
+					<li>
+					
+					<%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Genres", "Index", "Genre")%>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Genres", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+					
+					</li>
+                    <li>
+                    
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Supports", "Index", "Support")%>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Supports", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+ 
+                    </li>
+                    <li>
+                    
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Machines", "Index", "Machine")%>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Machines", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+ 
+                    </li>
+--%>
+                    <li>
+                    
+                    <%
+                        if (Request.IsAuthenticated) {
+                    %>
+                            <%= Html.ActionLink("Administration", "Index", "Administration")%>
+                    <%
+                        }
+                        else {
+                    %> 
+                            <%= Html.ActionLink("Administration", "LogOn", "Account")%>
+                    <%
+                        }
+                    %>
+ 
+                    </li>
+                </ul>
+            
+            </div>
+        </div>
+
+        <div id="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6AE7ED26-D5AF-4E7C-9CB7-C31AF024C482}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>GestionMedias.My.MyApplication</StartupObject>
+    <RootNamespace>GestionMedias</RootNamespace>
+    <AssemblyName>LibVues</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>LibVues.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>LibVues.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="ExtendedRichTextBox, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="LibControleurs" />
+    <Import Include="LibModele" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DialogPret.Designer.vb">
+      <DependentUpon>DialogPret.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogPret.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSearchFilm.Designer.vb">
+      <DependentUpon>DialogSearchFilm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSearchFilm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSearchJeu.Designer.vb">
+      <DependentUpon>DialogSearchJeu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSearchJeu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFilms.Designer.vb">
+      <DependentUpon>FormFilms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFilms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJeux.Designer.vb">
+      <DependentUpon>FormJeux.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormJeux.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrets.Designer.vb">
+      <DependentUpon>FormPrets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrets.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrinc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrinc.Designer.vb">
+      <DependentUpon>FormPrinc.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearch.Designer.vb">
+      <DependentUpon>FormSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogPret.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DialogPret.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSearchFilm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DialogSearchFilm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSearchJeu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DialogSearchJeu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFilms.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormFilms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormJeux.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormJeux.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrets.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPrets.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrinc.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPrinc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibControleurs\LibControleurs.vbproj">
+      <Project>{F385216E-62AC-4D0D-AE73-B634A11ED833}</Project>
+      <Name>LibControleurs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibModele\LibModele.vbproj">
+      <Project>{BA1AE104-B132-4C56-8207-4FD052A0CA0C}</Project>
+      <Name>LibModele</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\savepetit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premierpetit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\precedentpetit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Suivantpetit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dernierpetit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\DataSources\LibModele.Film.datasource" />
+    <None Include="Resources\printerOne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dvd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gestion medias.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appli.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\dc.jpg" />
+    <None Include="Resources\DC_small.jpg" />
+    <Content Include="Resources\gc.jpg" />
+    <None Include="Resources\Image1.jpg" />
+    <None Include="Resources\GC_small.jpg" />
+    <Content Include="Resources\MasterSystem.jpg" />
+    <None Include="Resources\MD_small.jpg" />
+    <None Include="Resources\MCD_small.jpg" />
+    <None Include="Resources\MCD_small.gif" />
+    <Content Include="Resources\mega cd.jpg" />
+    <Content Include="Resources\Megadrive.jpg" />
+    <None Include="Resources\MS_small.gif" />
+    <Content Include="Resources\pc.jpg" />
+    <None Include="Resources\PC_small.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

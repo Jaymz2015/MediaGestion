@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LibAllocine.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UrlRechercheAllocine" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://api.allocine.fr/rest/v3/search</Value>
+    </Setting>
+    <Setting Name="UrlInfosFilmAllocine" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://api.allocine.fr/rest/v3/{0}?{1}&amp;sig={2}</Value>
+    </Setting>
+    <Setting Name="RepertoireTemp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:/Temp/</Value>
+    </Setting>
+    <Setting Name="UrlRechercheJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ws.jeuxvideo.com/search_n/{0}</Value>
+    </Setting>
+    <Setting Name="UrlInfosJeuJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ws.jeuxvideo.com/01.jeux/details/{0}.xml</Value>
+    </Setting>
+    <Setting Name="LoginJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">appandr</Value>
+    </Setting>
+    <Setting Name="PasswordJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">e32!cdf</Value>
+    </Setting>
+    <Setting Name="UrlObtenirFicheJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://ws.jeuxvideo.com/01.jeux/{0}.xml</Value>
+    </Setting>
+    <Setting Name="EnteteXML" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</Value>
+    </Setting>
+    <Setting Name="UrlScreenshotsJVC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://ws.jeuxvideo.com/01.jeux/screen/{0}.xml</Value>
+    </Setting>
+    <Setting Name="FormatRecherche" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">json</Value>
+    </Setting>
+    <Setting Name="ParamsRechercheAllocine" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">partner=100043982026&amp;q={0}&amp;format=json&amp;filter={2}&amp;sed={1}&amp;count=10&amp;page=1</Value>
+    </Setting>
+    <Setting Name="SecretKeyAllocine" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">29d185d98c984a359e6e6f26a0474269</Value>
+    </Setting>
+    <Setting Name="ParamsInfosFilmAllocine" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">partner=100043982026&amp;code={0}&amp;profile=medium&amp;format=json&amp;filter={2}&amp;sed={1}&amp;striptags=synopsis,synopsisshort</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
