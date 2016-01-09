@@ -128,6 +128,7 @@
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Views\Administration\Index.aspx" />
+    <Content Include="Views\Serie\CreerSaison.aspx" />
     <Content Include="Views\Serie\Create.aspx" />
     <Content Include="Views\Serie\CreerExemplaire.aspx" />
     <Content Include="Views\Serie\CreerSouhait.aspx" />
@@ -136,6 +137,7 @@
     <Content Include="Views\Serie\Edit.aspx" />
     <Content Include="Views\Serie\Index.aspx" />
     <Content Include="Views\Serie\ListeAllocine.aspx" />
+    <Content Include="Views\Serie\ListeExemplairesSaisonControl.ascx" />
     <Content Include="Views\Serie\ListeSaisonsControl.ascx" />
     <Content Include="Views\Serie\ModifierExemplaire.aspx" />
     <Content Include="Views\Jeu\DetailJeuControl.ascx" />

@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using MediaGestion.Modele.Dl.Dlo;
 using System.Collections.Generic;
 using MediaGestion.Modele;
+using MediaGestion.Modele.Dl.Dlo.Series;
 
 namespace MediaGestion.Vues.Models
 {
@@ -146,7 +147,7 @@ namespace MediaGestion.Vues.Models
                     case Constantes.EnumTypeMedia.FILM:
                         return "~/Views/Film/DetailFilmControl.ascx";
                     case Constantes.EnumTypeMedia.SERIE:
-                        return "~/Views/Film/DetailSerieControl.ascx";
+                        return "~/Views/Serie/DetailSerieControl.ascx";
                     case Constantes.EnumTypeMedia.JEU:
                         return "~/Views/Jeu/DetailJeuControl.ascx";
                     default:
@@ -184,6 +185,8 @@ namespace MediaGestion.Vues.Models
         public string Developpeur { get; set; }
         public string Editeur { get; set; }
         public string AnneeSortie { get; set; }
+
+        public Saison LaSaison { get; set; }
 
         /// <summary>
         /// Constructeur

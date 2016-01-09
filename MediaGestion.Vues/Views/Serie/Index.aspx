@@ -244,7 +244,7 @@
                                 <% } %>
                             <% } %>
                         
-                        <% } else { %> Aucun film trouvé...  <% } %>
+                        <% } else { %> Aucune série trouvée...  <% } %>
                             
                     </div>
       <%--          

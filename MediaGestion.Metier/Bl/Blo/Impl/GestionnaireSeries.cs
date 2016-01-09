@@ -5,6 +5,7 @@ using System.Text;
 using MediaGestion.Modele.Dl.Dlo;
 using MediaGestion.DAO;
 using MediaGestion.Modele;
+using MediaGestion.Modele.Dl.Dlo.Series;
 
 namespace MediaGestion.Metier
 {
@@ -60,27 +61,33 @@ namespace MediaGestion.Metier
         public Serie ObtenirLaSerieComplete(Guid idSerie)
         {
         
-            Serie Serie = LaSerieDAO.ObtenirSerieComplete(idSerie);
+            Serie serie = LaSerieDAO.ObtenirSerieComplete(idSerie);
 
-            List<Exemplaire> listeExpl = LaSerieDAO.ObtenirListeExemplairesMedia(Serie.Code);
-            List<Exemplaire> listeSouhaits = LaSerieDAO.ObtenirListeSouhaitsMedia(Serie.Code);
-
-            //On associe le Serie à chaque exemplaire
-            foreach (Exemplaire expl in listeExpl) {
-                expl.LeMedia = Serie;
-            }
-
-            //On associe le Serie à chaque exemplaire
-            foreach (Exemplaire expl in listeSouhaits)
+            ////On associe la serie à chaque saison
+            foreach (Saison saison in serie.ListeSaisons)
             {
-                expl.LeMedia = Serie;
+                saison.LaSerie = serie;
             }
 
-            Serie.ListeExemplaire = listeExpl;
-            Serie.ListeSouhaits = listeSouhaits;
-            
+            //List<Exemplaire> listeExpl = LaSerieDAO.ObtenirListeExemplairesMedia(Serie.Code);
+            //List<Exemplaire> listeSouhaits = LaSerieDAO.ObtenirListeSouhaitsMedia(Serie.Code);
 
-            return Serie;        
+            ////On associe le Serie à chaque exemplaire
+            //foreach (Exemplaire expl in listeExpl) {
+            //    expl.LeMedia = Serie;
+            //}
+
+            ////On associe le Serie à chaque exemplaire
+            //foreach (Exemplaire expl in listeSouhaits)
+            //{
+            //    expl.LeMedia = Serie;
+            //}
+
+            //Serie.ListeExemplaire = listeExpl;
+            //Serie.ListeSouhaits = listeSouhaits;
+
+
+            return serie;        
         }
 
         /// <summary>
@@ -135,5 +142,17 @@ namespace MediaGestion.Metier
             return mediaDAO.ObtenirListeMedias(Constantes.EnumTypeMedia.SERIE);
         }
 
+        /// <summary>
+        /// AjouterSaison
+        /// </summary>
+        /// <param name="pCodeSerie"></param>
+        /// <param name="pSaison"></param>
+        /// <returns></returns>
+        public bool AjouterSaison(Guid pCodeSerie, Saison pSaison)
+        {
+            pSaison.CodeSaison = Guid.NewGuid();
+            return LaSerieDAO.AjouterSaison(pCodeSerie, pSaison);
+
+        }
     }
 }

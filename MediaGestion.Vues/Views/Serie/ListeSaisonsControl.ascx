@@ -14,16 +14,16 @@
                 Saison <%=Html.Encode(saison.Numero)%> sortie en <%=Html.Encode(saison.AnneeSortie)%> : <%=Html.Encode(saison.NbEpisodes)%> épisodes
                 </h1>
                 </div>
+
+                <% Html.RenderPartial("ListeExemplairesSaisonControl", saison); %>
+                <% Html.RenderPartial("ListeSouhaitsControl"); %>   
             <% } %>
 
         <% } %>
 
-        <% Html.RenderPartial("ListeExemplairesControl"); %>
-        <% Html.RenderPartial("ListeSouhaitsControl"); %>   
-
 
         <p>
-            <a href="<%= Url.Action("CreerSaisons", new  { pCodeMedia = Model.LeMedia.Code } )  %>"
+            <a href="<%= Url.Action("CreerSaison", new  { pCodeMedia = Model.LeMedia.Code } )  %>"
                 class="lienEdition">
                 <img src="../../Content/Images/add_property-64.png" alt="Supprimer" title="Ajouter une saison"
                     class="boutonEdition" />

@@ -22,7 +22,7 @@ namespace MediaGestion.DAO
         /// <summary>
         /// Requête de récupération de la liste des saisons
         /// </summary>
-        private string REQUETE_OBTENIR_LISTE_SAISONS = "SELECT codeSaison, numeroSaison, codeSerie, annee, nbEpisodes from Saison where codeSerie=@pCodeSerie";
+        private string REQUETE_OBTENIR_LISTE_SAISONS = "SELECT codeSaison, numeroSaison, codeSerie, annee, nbEpisodes from Saison where codeSerie=@pCodeSerie order by numeroSaison asc";
 
         /// <summary>
         /// Requête de récupération de la liste des SERIEs
@@ -71,10 +71,30 @@ namespace MediaGestion.DAO
         /// <summary>
         /// Requête permettant de vérifier si une serie n'existe pas déjà
         /// </summary>
-        protected string REQUETE_EXISTE_SERIE = "SELECT TOP 1 * from Media m, Serie se, GENRE g " +
+        private const string REQUETE_EXISTE_SERIE = "SELECT TOP 1 * from Media m, Serie se, GENRE g " +
                                                                         " WHERE m.codeGenre=g.codeGenre and m.codeMedia = se.codeSerie" +
                                                                         " AND m.titre=@pTitre " +
                                                                         " AND se.realisateur=@pRealisateur";
+
+
+        /// <summary>
+        /// Ajout d'une saison
+        /// </summary>
+        private const string REQUETE_AJOUTER_SAISON = "INSERT INTO [dbo].[SAISON] " +
+                                                         "  ([codeSaison] " + 
+                                                         "  ,[numeroSaison] " + 
+                                                         "  ,[codeSerie] " + 
+                                                         "  ,[annee] " + 
+                                                         "  ,[nbEpisodes]) " + 
+                                                   "  VALUES " + 
+                                                    "       (@codeSaison " + 
+                                                    "       ,@numeroSaison " + 
+                                                    "       ,@codeSerie " +
+                                                    "       ,@anneeSortie " + 
+                                                    "       ,@nbEpisodes)";
+                                
+
+
 
         /// <summary>
         /// Constructeur
@@ -315,7 +335,47 @@ namespace MediaGestion.DAO
             return result;
         }
 
-        
 
+        /// <summary>
+        /// AjouterSaison
+        /// </summary>
+        /// <param name="pCodeSerie"></param>
+        /// <param name="pSaison"></param>
+        /// <returns></returns>
+        public bool AjouterSaison(Guid pCodeSerie, Saison pSaison)
+        {
+            Log.MonitoringLogger().Info(KS_NOM_MODULE + "Début AjouterSaison");
+
+            CustomDataSource maDataSource = new CustomDataSource(Properties.Settings.Default.CHAINE_CONNEXION);
+
+            try
+            {
+                maDataSource.StartGlobalTransaction();
+
+                maDataSource.ExecuterDML(REQUETE_AJOUTER_SAISON, true, pSaison.CodeSaison, pSaison.Numero, pCodeSerie, pSaison.AnneeSortie, pSaison.NbEpisodes);
+
+                maDataSource.CommitGlobalTransaction();
+
+                Log.MonitoringLogger().Info(KS_NOM_MODULE + "Enregistrement de l'exemplaire OK");
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                Log.MonitoringLogger().Info(KS_NOM_MODULE + "Erreur = " + ex.Message);
+                maDataSource.RollBackGlobalTransaction();
+                throw ex;
+            }
+            finally
+            {
+                Log.MonitoringLogger().Info(KS_NOM_MODULE + "Fin AjouterSaison");
+            }
+
+
+        }
+
+        
     }
 }

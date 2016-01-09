@@ -17,7 +17,7 @@ namespace MediaGestion.Metier.Bl.Blo.Impl
         {
             EtatMediaDAO etatMediaDAO = new EtatMediaDAO();
             return etatMediaDAO.ObtenirListeEtats();
-            //***
+            
         }
 
     }

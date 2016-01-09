@@ -14,6 +14,7 @@ using System.Drawing;
 using MediaGestion.Vues.Helper;
 using LibAllocine.Helper;
 using System.Drawing.Imaging;
+using MediaGestion.Modele.Dl.Dlo.Series;
 
 namespace MediaGestion.Vues.Controllers
 {
@@ -540,6 +541,69 @@ namespace MediaGestion.Vues.Controllers
                 return RedirectToAction("LogOn", "Account");
             }
         }
+
+        //Create saison
+        //
+        // GET: /Home/CreerSaison
+        public ActionResult CreerSaison(Guid pCodeMedia)
+        {
+            if (Request.IsAuthenticated)
+            {
+                MediaViewModel mediaViewModel = new MediaViewModel(Modele.Constantes.EnumTypeMedia.SERIE);
+
+                mediaViewModel.ListeProprietaire = DataManager.ListeProprietaires;
+                mediaViewModel.ListeSupports = DataManager.ListeSupports;
+                mediaViewModel.ListeGenres = DataManager.ObtenirListeGenre(Modele.Constantes.EnumTypeMedia.SERIE);
+
+                GestionnaireSeries gestionnaireSeries = new GestionnaireSeries();
+                mediaViewModel.LaSerie = gestionnaireSeries.ObtenirLaSerieComplete(pCodeMedia);
+                mediaViewModel.LaSaison = new Saison();
+
+                mediaViewModel.LaSaison.Numero = mediaViewModel.LaSerie.ListeSaisons.Last<Saison>().Numero + 1;
+                mediaViewModel.LaSaison.AnneeSortie = mediaViewModel.LaSerie.ListeSaisons.Last<Saison>().AnneeSortie + 1;
+                mediaViewModel.LaSaison.NbEpisodes = mediaViewModel.LaSerie.ListeSaisons.Last<Saison>().NbEpisodes;
+
+                return View(mediaViewModel);
+            }
+            else
+            {
+                return RedirectToAction("LogOn", "Account");
+            }
+
+        }
+
+        //
+        // POST: /Home/CreerSaison
+        [HttpPost]
+        public ActionResult CreerSaison(MediaViewModel pMediaViewModel)
+        {
+            if (Request.IsAuthenticated)
+            {
+                try
+                {
+                    GestionnaireSeries gestionnaireSeries = new GestionnaireSeries();
+
+                    gestionnaireSeries.AjouterSaison(
+                        pMediaViewModel.LaSerie.Code,
+                        pMediaViewModel.LaSaison);
+
+                    //On affiche la page du Serie
+                    return RedirectToAction("Details", "Serie", new { codeMedia = pMediaViewModel.LaSerie.Code });
+
+                }
+                catch (Exception ex)
+                {
+                    HandleErrorInfo error = new HandleErrorInfo(ex, "Serie", "CreerSaison");
+                    return View("Error", error);
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("LogOn", "Account");
+            }
+        }
+        
 
         //
         // GET: /Serie/Edit/5
